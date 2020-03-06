@@ -6,7 +6,7 @@ document.getElementById('loan-form').addEventListener('submit', function (e) {
     // Shows loader
     document.getElementById('loading').style.display = 'block';
 
-    setTimeout(calculateResults, 2000);
+    setTimeout(calculateResults, 1000);
 
     e.preventDefault();
 });
@@ -22,16 +22,19 @@ function calculateResults() {
     const totalInterest = document.getElementById('total-interest');
     const downPayment = document.getElementById('downPayment');
 
-    const principle = parseFloat(amount.value);
+    const principleBeforeDownPayment = parseFloat(amount.value);
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
     const calculatedPayments = parseFloat(years.value) * 12;
+    const calculatedDownPayment = parseFloat(downPayment.value);
+    const principle = principleBeforeDownPayment - calculatedDownPayment;
 
     // Computes monthly payments
     const x = Math.pow(1 + calculatedInterest, calculatedPayments);
-    const monthly = (principle * x * calculatedInterest) / (x - 1);
+    const monthly = (principle* x * calculatedInterest) / (x - 1);
 
     if (isFinite(monthly)) {
         monthlyPayment.value = monthly.toFixed(2);
+        calculatedDownPayment.value = monthly.toFixed(2);
         totalPayment.value = (monthly * calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principle).toFixed(2);
 
