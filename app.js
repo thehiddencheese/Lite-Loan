@@ -20,6 +20,7 @@ function calculateResults() {
     const monthlyPayment = document.getElementById('monthly-payment');
     const totalPayment = document.getElementById('total-payment');
     const totalInterest = document.getElementById('total-interest');
+    const downPayment = document.getElementById('downPayment');
 
     const principle = parseFloat(amount.value);
     const calculatedInterest = parseFloat(interest.value) / 100 / 12;
@@ -40,7 +41,7 @@ function calculateResults() {
         //Hides loader
         document.getElementById('loading').style.display = 'none';
     } else {
-        showError('Please check your numbers');
+        showError('Verify that information is entered correctly');
 
     }
 }
