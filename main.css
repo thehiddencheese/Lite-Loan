@@ -15,8 +15,13 @@ body {
         sans-serif;
 }
 
-.input-group-addon {
+.user-inputs {
     width: 10%;
+    margin: auto;
+}
+
+.results {
+    width: 50%;
     margin: auto;
 }
 
