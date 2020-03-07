@@ -11,8 +11,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Quicksand',
-        sans-serif;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 .user-inputs {
